@@ -1,0 +1,39 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { themes, tokens } from '../tokens/tokens';
+
+<Meta title="Foundations/Tokens" />
+
+# Tokens
+
+Generated from `tokens/tokens.json` by `npm run tokens`. Do not hard-code values in components.
+
+## Semantic colours
+
+<ColorPalette>
+  {Object.keys(themes.dark).map((name) => (
+    <ColorItem
+      key={name}
+      title={name}
+      subtitle={`--dui-color-${name}`}
+      colors={{ dark: themes.dark[name], light: themes.light[name] }}
+    />
+  ))}
+</ColorPalette>
+
+## Why `action` and `accent` are different
+
+The brand blue `#4f8cff` only reaches **3.2:1** with white text, which fails WCAG AA for normal-size text. Buttons therefore use `action` (`#2f6fe0`, 4.7:1), while the brand blue stays for accents on dark backgrounds, where it reaches 6.2:1. This rule is enforced by `src/tokens/contrast.test.ts`.
+
+## Spacing
+
+<table>
+  <tbody>
+    {Object.entries(tokens).filter(([k]) => k.startsWith('space.')).map(([k, v]) => (
+      <tr key={k}>
+        <td><code>--dui-{k.replace('.', '-')}</code></td>
+        <td>{v}</td>
+        <td><div style={{ width: v, height: 12, background: '#4f8cff', borderRadius: 2 }} /></td>
+      </tr>
+    ))}
+  </tbody>
+</table>

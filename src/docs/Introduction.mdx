@@ -1,0 +1,18 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# Dimension UI
+
+Design tokens and accessible React components behind [dimension.pt](https://dimension.pt).
+
+- **Tokens first.** Colours, spacing, type and motion live in `tokens/tokens.json` and are compiled to CSS custom properties and a typed TS object. Components only use semantic tokens (`--dui-color-action`, not `#2f6fe0`), so the dark and light themes come for free. Switch theme in the toolbar.
+- **WCAG 2.1 AA by default.** Every semantic colour pair has an automated contrast test. Components follow the WAI-ARIA Authoring Practices, and every story is checked with axe (see the *Accessibility* panel).
+- **Tested at three levels.** Vitest + React Testing Library for behaviour, Storybook `play` functions for interactions, and Playwright for real-browser checks (focus trapping, contrast, keyboard flows).
+
+```tsx
+import { Button, Card } from '@dimension/ui';
+import '@dimension/ui/styles.css';
+
+<html data-theme="dark">…</html>
+```

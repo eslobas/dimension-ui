@@ -1,0 +1,12 @@
+body { margin: 0; }
+.sb-canvas {
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: var(--dui-color-bg);
+  color: var(--dui-color-fg);
+  font-family: var(--dui-font-family-sans);
+}
+.sb-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+.sb-stack { display: grid; gap: 1rem; max-width: 26rem; }
+.sb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1rem; }
