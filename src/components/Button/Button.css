@@ -1,0 +1,49 @@
+.dui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--dui-space-2);
+  border: 1px solid transparent;
+  border-radius: var(--dui-radius-sm);
+  font-family: var(--dui-font-family-sans);
+  font-weight: var(--dui-font-weight-semibold);
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--dui-motion-duration-fast) var(--dui-motion-easing-out),
+    border-color var(--dui-motion-duration-fast) var(--dui-motion-easing-out),
+    transform var(--dui-motion-duration-fast) var(--dui-motion-easing-out);
+}
+.dui-button:active:not(:disabled, [aria-disabled='true']) { transform: scale(0.98); }
+.dui-button:disabled { cursor: not-allowed; opacity: 0.5; }
+.dui-button--loading { cursor: progress; }
+
+/* Sizes keep a 44px min target at md and above (WCAG 2.5.8 needs 24px; 44px is the comfortable default). */
+.dui-button--sm { min-height: 32px; padding: 0 var(--dui-space-3); font-size: var(--dui-font-size-sm); }
+.dui-button--md { min-height: 44px; padding: 0 var(--dui-space-5); font-size: var(--dui-font-size-sm); }
+.dui-button--lg { min-height: 52px; padding: 0 var(--dui-space-6); font-size: var(--dui-font-size-md); }
+.dui-button--full { width: 100%; }
+
+.dui-button--primary { background: var(--dui-color-action); color: var(--dui-color-on-action); }
+.dui-button--primary:hover:not(:disabled) { background: var(--dui-color-action-hover); }
+
+.dui-button--secondary { background: transparent; color: var(--dui-color-fg); border-color: var(--dui-color-border-strong); }
+.dui-button--secondary:hover:not(:disabled) { background: var(--dui-color-surface-raised); }
+
+.dui-button--ghost { background: transparent; color: var(--dui-color-fg); }
+.dui-button--ghost:hover:not(:disabled) { background: var(--dui-color-surface-raised); }
+
+.dui-button--danger { background: transparent; color: var(--dui-color-danger); border-color: currentColor; }
+.dui-button--danger:hover:not(:disabled) { background: var(--dui-color-surface-raised); }
+
+.dui-button__icon { display: inline-flex; }
+.dui-button__spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--dui-radius-full);
+  animation: dui-spin 0.7s linear infinite;
+}
+@keyframes dui-spin { to { transform: rotate(360deg); } }
